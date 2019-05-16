@@ -81,7 +81,18 @@ class joblistController extends Controller
      */
     public function update(Request $request)
     {
-       $id=$request->input('jobID');
+
+        $this->validate($request,[
+   
+        'jname'=>'required|string',
+   
+        'location'=>'required|string',
+        'req'=>'required|string',
+        'salary'=>'required|string'
+        
+        ]);
+
+        $id=$request->input('jobID');
         $job=job::find($id);
         $job->type_name=$request->input('comtype');
         $job->job_name=$request->input('jname');

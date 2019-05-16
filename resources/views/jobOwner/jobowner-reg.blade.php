@@ -22,7 +22,7 @@
 <style type="text/css">
   
 body{
-  background-image: url(http://www.joburgchiropractor.co.za/images/background.jpg);
+  background-image: url('img/background.jpg');
 }
 
 .btn-trans {

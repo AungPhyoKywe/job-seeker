@@ -417,6 +417,7 @@
     </div>
   </div>
   </div>
+  <div id="loading"></div>
  @endif
 
   <!-- Bootstrap core JavaScript-->
