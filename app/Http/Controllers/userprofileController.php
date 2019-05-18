@@ -84,11 +84,11 @@ class userprofileController extends Controller
     public function update(Request $request)
     {
         $this->validate($request,[
-    'name'=>'required|string',
+    'name'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
     'nrc'=>'required|string',
     'email'=>'required|string|email|max:255',
     'password'=>'required|string|min:8',
-    'phone'=>'required|string|max:11',
+    'phone'=>'required|min:11|numeric',
     // 'company'=>'required|string',
     'address'=>'required|string'
 

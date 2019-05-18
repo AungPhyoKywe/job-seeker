@@ -56,11 +56,11 @@ class joController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-    'name'=>'required|string',
+    'name'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
     'nrc'=>'required|string',
     'email'=>'required|string|email|max:255|unique:users',
     'password'=>'required|string|min:8',
-    'phone'=>'required|string|max:11',
+    'phone'=>'required|min:11|numeric',
     'company'=>'required|string',
     'address'=>'required|string'
 //'pic_path'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'

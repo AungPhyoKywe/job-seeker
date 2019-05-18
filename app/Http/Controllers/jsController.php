@@ -46,12 +46,12 @@ class jsController extends Controller
     public function store(Request $request)
     {
     $this->validate($request,[
-    'name'=>'required|string',
+    'name'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
     'nrc'=>'required|string',
     'email'=>'required|string|email|max:255|unique:users',
     'password'=>'required|string|min:8',
-    'phone'=>'required|string|max:11',
-    // 'company'=>'required|string',
+    'phone'=>'required|min:11|numeric',
+    'dob'=>'required|string',
     'address'=>'required|string'
 
         ]);

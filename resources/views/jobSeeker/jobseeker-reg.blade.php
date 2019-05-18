@@ -92,7 +92,7 @@ body{
  <div class="input-group-addon">
   <span class="glyphicon glyphicon-user"></span> 
    </div>
- <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"required>
+ <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"value="{{ old('name') }}" >
     @if ($errors->has('name'))
     <span class="invalid-feedback" role="alert">
     <strong>{{ $errors->first('name') }}</strong>
@@ -108,7 +108,7 @@ body{
  <div class="input-group-addon">
  <i class="fas fa-address-card"></i>
    </div>
-    <input type="text" class="form-control{{ $errors->has('nrc') ? ' is-invalid' : '' }}"name="nrc"required>
+    <input type="text" class="form-control{{ $errors->has('nrc') ? ' is-invalid' : '' }}"name="nrc"value="{{ old('nrc') }}" >
     @if ($errors->has('nrc'))
     <span class="invalid-feedback" role="alert">
     <strong>{{ $errors->first('nrc') }}</strong>
@@ -122,7 +122,7 @@ body{
  <div class="input-group-addon">
   <span class="glyphicon glyphicon-envelope"></span> 
    </div>
-    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autocomplete="email">
+    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" autocomplete="email">
      @if ($errors->has('email'))
     <span class="invalid-feedback" role="alert">
     <strong>{{ $errors->first('email') }}</strong>
@@ -136,7 +136,7 @@ body{
  <div class="input-group-addon">
   <i class="fas fa-key"></i>
    </div>
-  <input type="password" class="form-control{{ $errors->has('nrc') ? ' is-invalid' : '' }}" name="password"required>
+  <input type="password" class="form-control{{ $errors->has('nrc') ? ' is-invalid' : '' }}" name="password"value="{{ old('password') }}" >
     @if ($errors->has('password'))
     <span class="invalid-feedback" role="alert">
     <strong>{{ $errors->first('password') }}</strong>
@@ -150,7 +150,7 @@ body{
  <div class="input-group-addon">
   <i class="fas fa-phone"></i>
    </div>
-    <input type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"name="phone"required>
+    <input type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"name="phone"value="{{ old('phone') }}" >
      @if ($errors->has('phone'))
     <span class="invalid-feedback" role="alert">
     <strong>{{ $errors->first('phone') }}</strong>
@@ -164,7 +164,7 @@ body{
  <div class="input-group-addon">
   <i class="fas fa-birthday-cake"></i>
    </div>
-    <input type="Date" class="form-control{{ $errors->has('dob') ? ' is-invalid' : '' }}"name="dob">
+    <input type="Date" class="form-control{{ $errors->has('dob') ? ' is-invalid' : '' }}"name="dob"value="{{ old('dob') }}" >
  @if ($errors->has('dob'))
     <span class="invalid-feedback" role="alert">
     <strong>{{ $errors->first('dob') }}</strong>
@@ -178,7 +178,7 @@ body{
  <div class="input-group-addon">
   <i class="fas fa-map-marker-alt"></i>
    </div>
-    <input type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"name="address"required>
+    <input type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}"name="address"value="{{ old('address') }}" >
      @if ($errors->has('address'))
     <span class="invalid-feedback" role="alert">
     <strong>{{ $errors->first('address') }}</strong>

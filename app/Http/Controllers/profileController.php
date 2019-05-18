@@ -83,11 +83,11 @@ JOIN users ON company.company_id=?
     public function update(Request $request)
     {
       $this->validate($request,[
-    'name'=>'required|string',
+    'name'=>'required|regex:/^[\pL\s\-]+$/u|max:255',
     'nrc'=>'required|string',
     'email'=>'required|string|email',
     'password'=>'required|string|min:8',
-    'phno'=>'required|string|max:11',
+    'phno'=>'required|min:11|numeric',
     'com'=>'required|string',
     'address'=>'required|string'
 //'pic_path'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
