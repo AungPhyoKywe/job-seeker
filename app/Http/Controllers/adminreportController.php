@@ -15,7 +15,9 @@ class adminreportController extends Controller
     {
         $company=DB::select('select  company_name from company');
 
-        $report=DB::table('company')->select('company.company_name','users.name','users.email','users.phno','users.nrc','users.created_at')->join('users','users.company_id','=','company.company_id')->get();
+        $report=DB::table('company')->select('company.company_name','users.name','users.email','users.phno','users.nrc','users.created_at','job.job_name')->join('users','users.company_id','=','company.company_id')
+        ->join('job','job.company_id','=','company.company_id')
+        ->get();
 
          return view('back-end.adminreport',["company"=>$company],["report"=>$report]);
         // dd($company);
@@ -56,7 +58,7 @@ class adminreportController extends Controller
 
         $todate=$request->input('todate');
 
-        $report=DB::table('company')->select('company.company_name','users.name','users.email','users.phno','users.nrc','users.created_at')->join('users','users.company_id','=','company.company_id')->where('company.company_name',$companyname)->get();
+        $report=DB::table('company')->select('company.company_name','users.name','users.email','users.phno','users.nrc','users.created_at','job.job_name')->join('users','users.company_id','=','company.company_id')->join('job','job.company_id','=','company.company_id')->where('company.company_name',$companyname)->get();
 
         return view('back-end.adminreport',["company"=>$company],["report"=>$report]);
     }

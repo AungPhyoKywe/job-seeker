@@ -370,7 +370,9 @@ table th {
     <tr>
     
       <th scope="col">Company Name</th>
-      <th scope="col">Name</th>
+    
+        <th scope="col">Job Name</th>
+          <th scope="col">User Name</th>
         <th scope="col">Email</th>
           <th scope="col">Phone</th>
        <th scope="col">Register Date</th>
@@ -383,6 +385,7 @@ table th {
     @foreach($report as $com)
     <tr>
       <td>{{$com->company_name}}</td>
+        <td>{{$com->job_name}}</td>
       <td>{{$com->name}}</td>
       <td>{{$com->email}}</td>
       <td>{{$com->phno}}</td>
@@ -403,7 +406,7 @@ table th {
 <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright © AI Project Website 2019</span>
           </div>
         </div>
       </footer>
