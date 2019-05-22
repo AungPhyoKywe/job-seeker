@@ -279,7 +279,7 @@
 {{ csrf_field() }}
   <div class="form-group">
     <label for="exampleInputEmail1">Job Name*</label>
-    <input type="text" class="form-control" name="jname">
+    <input type="text" class="form-control" name="jname"value="{{ old('jname') }}">
   </div>
 
    <div class="form-group">
@@ -300,19 +300,19 @@
   </div>
 <div class="form-group">
     <label for="exampleInputPassword1">Location*</label>
-    <input type="text" class="form-control"name="location">
+    <input type="text" class="form-control"name="location"value="{{ old('location') }}">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Salary*</label>
-    <input type="text" class="form-control"name="salary">
+    <input type="text" class="form-control"name="salary"value="{{ old('salary') }}">
   </div>
   <div class="form-group">
     <label>To Date*</label>
-    <input type="Date" class="form-control"name="todate">
+    <input type="Date" class="form-control"name="todate"value="{{ old('todate') }}">
   </div>
    <div class="form-group">
     <label>Requirement</label>
-    <textarea type="text" class="form-control"name="req"></textarea>
+    <textarea type="text" class="form-control"name="req">{{old('req')}}</textarea>
   </div>
  
   <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i>Post Job</button>

@@ -14,6 +14,7 @@ class adminreportController extends Controller
     public function index()
     {
         $company=DB::select('select  company_name from company');
+
         $report=DB::table('company')->select('company.company_name','users.name','users.email','users.phno','users.nrc','users.created_at')->join('users','users.company_id','=','company.company_id')->get();
 
          return view('back-end.adminreport',["company"=>$company],["report"=>$report]);
@@ -50,7 +51,7 @@ class adminreportController extends Controller
     public function show(Request $request)
     {
 
-        $company=DB::select('select  company_name from company');
+        $company=DB::table('company')->select('company_name')->get();
         $companyname=$request->input('industry');
 
         $todate=$request->input('todate');

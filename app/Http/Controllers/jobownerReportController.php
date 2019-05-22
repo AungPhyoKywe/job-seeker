@@ -17,7 +17,7 @@ class jobownerReportController extends Controller
          $users=Auth::user()->company_id;
  
 
-         $industrylist= DB::table('job_aplied')->select('users.name','job.job_name','users.phno','users.email','job_aplied.cv','job.status','job.type_name','job.job_id','job_aplied.created_at','job_aplied.jobapp_id')->join('users','users.user_id','=','job_aplied.user_id')->join('job','job.job_id','=','job_aplied.job_id')->where('job_aplied.status',1)->get();
+         $industrylist= DB::table('job_aplied')->join('users','users.user_id','=','job_aplied.user_id')->join('job','job.job_id','=','job_aplied.job_id')->where('job_aplied.status',1)->where('job.company_id',$users)->distinct()->get(['job.type_name']);
 
         $applylist= DB::table('job_aplied')->select('users.name','job.job_name','users.phno','users.email','job_aplied.cv','job.status','job.type_name','job.job_id','job_aplied.created_at','job_aplied.jobapp_id')->join('users','users.user_id','=','job_aplied.user_id')->join('job','job.job_id','=','job_aplied.job_id')->where('job_aplied.status',1)->where('job.company_id',$users)->get();
 
@@ -56,14 +56,14 @@ class jobownerReportController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request)
-    {
+    {     $users=Auth::user()->company_id;
        $industry=$request->input('industry');
        $todate=$request->input('todate');
        $fromdate=$request->input('fromdate');
 
-        $industrylist= DB::table('job_aplied')->select('users.name','job.job_name','users.phno','users.email','job_aplied.cv','job.status','job.type_name','job.job_id','job_aplied.created_at','job_aplied.jobapp_id')->join('users','users.user_id','=','job_aplied.user_id')->join('job','job.job_id','=','job_aplied.job_id')->where('job_aplied.status',1)->get();
+         $industrylist= DB::table('job_aplied')->join('users','users.user_id','=','job_aplied.user_id')->join('job','job.job_id','=','job_aplied.job_id')->where('job_aplied.status',1)->where('job.company_id',$users)->distinct()->get(['job.type_name']);
 
-       $applylist= DB::table('job_aplied')->select('users.name','job.job_name','users.phno','users.email','job_aplied.cv','job.status','job.type_name','job.job_id','job_aplied.created_at','job_aplied.jobapp_id')->join('users','users.user_id','=','job_aplied.user_id')->join('job','job.job_id','=','job_aplied.job_id')->where('job_aplied.status',1)->where('job.type_name',$industry) ->whereBetween('job.created_at', array($fromdate, $todate))->get();
+       $applylist= DB::table('job_aplied')->select('users.name','job.job_name','users.phno','users.email','job_aplied.cv','job.status','job.type_name','job.job_id','job_aplied.created_at','job_aplied.jobapp_id')->join('users','users.user_id','=','job_aplied.user_id')->join('job','job.job_id','=','job_aplied.job_id')->where('job_aplied.status',1)->where('job.type_name',$industry) ->whereBetween('job.created_at', array($fromdate, $todate))->where('job.company_id',$users)->get();
 
        return view('jobOwner.report',["applylist"=>$applylist],
             ["industrylist"=>$industrylist]);
