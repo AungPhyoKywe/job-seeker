@@ -12,6 +12,7 @@
         "Maatwebsite/excel": "^2.1",
         "arcanedev/log-viewer": "^4.7",
         "barryvdh/laravel-dompdf": "^0.8.4",
+        "consoletvs/charts": "5.*",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",

@@ -85,6 +85,7 @@ Route::post('/update','joblistController@update');
 Route::get('/delete/{id}','joblistController@destroy');
 
 Route::group(['middleware'=>['adminpage']],function(){
+	
 Route::get('/jobownerlist','jobownerlistController@show');	
 Route::post('/industry/update','industryController@update');
 Route::post('industry/store',        array('as'=>'industry/store','uses'=>'industryController@store'));
